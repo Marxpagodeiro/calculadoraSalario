@@ -27,15 +27,35 @@ public class Calculosalario {
         double depen = in.nextDouble();// depententes; regras acima 
         double FGTS = salarioBruto*0.08;
         double INSS = 0;
+        double faixa1 = 0;
+        double faixa2 = 0;
+        double faixa3 = 0;
+        double faixa4 = 0;
         if(salarioBruto<=1212.00){
             INSS = salarioBruto*0.075;
         }else if(salarioBruto<=2427.35){
-            INSS = salarioBruto*0.09;
+            faixa1 = 1212.00*0.075; 
+            faixa2 = (salarioBruto-1212.00)*0.09;
+            INSS = faixa1+faixa2;
         }else if(salarioBruto<=3641.03){
-            INSS = salarioBruto*0.12;
-        }else if(salarioBruto>=3641.04){
-            INSS = salarioBruto*0.14;
+            faixa1 = 1212.00*0.075; 
+            faixa2 = (2427.35-1212.00)*0.09;
+            faixa3 = (salarioBruto-2427.35)*0.12;
+            INSS = faixa1+faixa2+faixa3;
+        }else if(salarioBruto>=3641.04 && salarioBruto<7087.22){
+            faixa1 = 1212.00*0.075; 
+            faixa2 = (2427.35-1212.00)*0.09;
+            faixa3 = (3641.04-2427.35)*0.12;
+            faixa4 = (salarioBruto-3641.03)*0.14;
+            INSS = faixa1+faixa2+faixa3+faixa4;
+        }else if(salarioBruto>=7087.22){
+            faixa1 = 1212.00*0.075; 
+            faixa2 = (2427.35-1212.00)*0.09;
+            faixa3 = (3641.04-2427.35)*0.12;
+            faixa4 = (7087.22-3641.03)*0.14;
+            INSS = faixa1+faixa2+faixa3+faixa4;
         }
+        System.out.println(INSS);
         double inssIrrf = salarioBruto-INSS;// Desconto do INSS no calculo do imposto de renda(IRRF)
         double depenIrrf = 189.59; // Dedução de dependentes no calculo do imposto de renda(IRRF)
         if(depen>1){
