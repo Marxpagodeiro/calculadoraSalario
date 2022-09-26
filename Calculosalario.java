@@ -37,32 +37,32 @@ public class Calculosalario {
                 INSS = salarioBruto*0.075;
                 System.out.println("faixa1");
             }else if(salarioBruto<=2427.35){
-                faixa1 = 1212.00*0.075; 
+                faixa1 = 1212.00*0.075; // 90,9
                 faixa2 = (salarioBruto-1212.00)*0.09;
                 INSS = faixa1+faixa2;
                 System.out.println("faixa2");
             }else if(salarioBruto<=3641.03){
-                faixa1 = 1212.00*0.075; 
-                faixa2 = (2427.35-1212.00)*0.09;
+                faixa1 = 1212.00*0.075; // 90,9
+                faixa2 = (2427.35-1212.00)*0.09;//109,3815
                 faixa3 = (salarioBruto-2427.35)*0.12;
                 INSS = faixa1+faixa2+faixa3;
                 System.out.println("faixa3");
             }else if(salarioBruto>=3641.04 && salarioBruto<7087.22){
-                faixa1 = 1212.00*0.075; 
-                faixa2 = (2427.35-1212.00)*0.09;
-                faixa3 = (3641.04-2427.35)*0.12;
+                faixa1 = 1212.00*0.075; // 90,9
+                faixa2 = (2427.35-1212.00)*0.09;//109,3815
+                faixa3 = (3641.03-2427.35)*0.12;//145,6416
                 faixa4 = (salarioBruto-3641.03)*0.14;
                 INSS = faixa1+faixa2+faixa3+faixa4;
                 System.out.println("faixa4");
             }else if(salarioBruto>=7087.22){
-                faixa1 = 1212.00*0.075; 
-                faixa2 = (2427.35-1212.00)*0.09;
-                faixa3 = (3641.04-2427.35)*0.12;
-                faixa4 = (7087.22-3641.03)*0.14;
+                faixa1 = 1212.00*0.075; // 90,9
+                faixa2 = (2427.35-1212.00)*0.09;//109,3815
+                faixa3 = (3641.03-2427.35)*0.12;//145,6416
+                faixa4 = (7087.22-3641.03)*0.14;//482,4666
                 INSS = faixa1+faixa2+faixa3+faixa4;
                 System.out.println("faixa5");
             }
-            System.out.println(INSS);
+            System.out.println("O valor a ser descontado no INSS é de " + INSS);
             double inssIrrf = salarioBruto-INSS;// Desconto do INSS no calculo do imposto de renda(IRRF)
             double depenIrrf = 189.59; // Dedução de dependentes no calculo do imposto de renda(IRRF)
             depenIrrf = depenIrrf*(depen);
@@ -79,7 +79,7 @@ public class Calculosalario {
                 IRRF = salarioIrrf*0.15;
                 PD= 354.80;
                 impostoDeRenda = IRRF-PD;
-                 System.out.println("imposto de renda2");
+                System.out.println("imposto de renda2");
             }else if(salarioIrrf>=3751.06 && salarioIrrf<4664.68){
                 IRRF = salarioIrrf*0.225;
                 PD= 636.13;
@@ -93,7 +93,7 @@ public class Calculosalario {
             }else{
                 System.out.println("não paga imposto de renda");
             }
-            System.out.println(impostoDeRenda);
+            System.out.println("O valor a ser descontado no imposto de renda é de " + impostoDeRenda);
             double salarioLiquido = 0;
             System.out.println("o valor do desconto de FGTS é " + FGTS);//valor descontado pelo patro e na folha do funcionario.
             salarioLiquido = salarioBruto-INSS-impostoDeRenda;
