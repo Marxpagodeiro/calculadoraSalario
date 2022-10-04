@@ -45,6 +45,7 @@ public class Calculosalario {
         double PD = 0; //Parcela dedutível
         double impostoDeRenda = 0;
         
+        // perguntas aos usuarios:
         
         System.out.println("quanto você recebe de salario? ");
         salarioBruto = in.nextDouble();
